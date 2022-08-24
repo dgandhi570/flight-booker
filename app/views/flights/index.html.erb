@@ -1,0 +1,21 @@
+<br>
+<% @seats = [1,2,3,4] %>
+<h1>Heyya lessgoo:)</h1>
+<br>
+<span>
+Departure From:
+<%= select(:departure_airport, :airport_id, @airport_options) %>
+<br>
+<br>
+Arrival at:
+<%= select(:arrival_airport, :airport_id, @airport_options) %>
+<br>
+<br>
+Date of Jouney:
+<%# <%= select(:date, @date_options) %>
+<%= select_date(prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}) %>
+<br>
+<br>
+No. of Passengers:
+<%= select_tag(@seats) %>
+</span>
