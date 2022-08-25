@@ -1,0 +1,18 @@
+<h1>Add Passenger Details</h1>
+<%= form_with model: @booking ,method: :post, html:{"data-turbo"=>false} do |form| %>
+<%= form.fields_for :passengers do |p| %>
+  <div>
+    <%= p.label :name %><br>
+    <%= p.text_field :name %>
+  </div>
+
+  <div>
+    <%= p.label :email %><br>
+    <%= p.text_area :email %><br>
+  </div>
+  <%end%>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+

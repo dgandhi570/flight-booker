@@ -8,6 +8,7 @@
       <th scope="col">Origin</th>
       <th scope="col">Destination</th>
       <th scope="col">Date</th>
+      <th scope="col">Duration(min)</th>
       <th scope="col"> </th>
     </tr>
   </thead>
@@ -20,7 +21,8 @@
       <td><%=x.departure_airport.code%></td>
       <td><%=x.arrival_airport.code%></td>
       <td><%=x.date_time%></td>
-      <td><%=button_to "Book this flight",{}, class: "btn btn-secondary" %>
+      <td><%=x.flight_duration%></td>
+      <td><%=link_to "Book this flight",new_booking_path, class: "btn btn-secondary" %>
     </tr>
     <%y += 1%>
   
