@@ -9,4 +9,4 @@ require 'faker'
 
 # Flight.create(departure_airport_id: 1, arrival_airport_id: 4 , date_time: DateTime.now, flight_duration: 4 )
 # Flight.create(departure_airport_id: 2, arrival_airport_id: 2 , date_time: DateTime.now, flight_duration: 2 )
-5.times{ Flight.create(departure_airport_id: Faker::Number.between(from: 1, to: 5), arrival_airport_id: Faker::Number.between(from: 3, to: 7), date_time: DateTime.now, flight_duration: Faker::Number.between(from: 2, to: 10) )}
+7.times{ Flight.create(departure_airport_id: Faker::Number.between(from: 3, to: 8), arrival_airport_id: Faker::Number.between(from: 1, to: 4), date_time: DateTime.now, flight_duration: Faker::Number.between(from: 2, to: 10) )}

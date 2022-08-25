@@ -1,21 +1,29 @@
 <br>
-<% @seats = [1,2,3,4] %>
-<h1>Heyya lessgoo:)</h1>
+
+<h2>Heyya lessgoo:)</h2>
+
 <br>
 <span>
+<%= form_with model: @flight, method: :get do |f|%>
 Departure From:
-<%= select(:departure_airport, :airport_id, @airport_options) %>
+<%= f.select :departure_airport_id, @airports.map{|a| [a.code, a.id]} %>
 <br>
 <br>
 Arrival at:
-<%= select(:arrival_airport, :airport_id, @airport_options) %>
+<%= f.select :arrival_airport_id, @airports.map{|a| [a.code, a.id]} %>
 <br>
 <br>
 Date of Jouney:
 <%# <%= select(:date, @date_options) %>
-<%= select_date(prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}) %>
+<%= f.select :date, @flights.map{|f| [f.date_time]} %>
 <br>
 <br>
 No. of Passengers:
-<%= select_tag(@seats) %>
+<%= f.select :passengers, [1,2,3,4,5,6]  %>
 </span>
+<br>
+<br>
+<%= f.submit "Search for Flights" %>
+<%end%>
+
+<%= render "flights/available_flights" %>
