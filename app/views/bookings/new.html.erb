@@ -1,8 +1,8 @@
 <h1>Add Passenger Details</h1>
 <%= form_with model: @booking, method: :post, html:{"data-turbo"=>false} do |form| %>
 <%n = 1%>
-<% @count.times do%>
-<%= form.fields_for :passenger do |p| %>
+<%= form.fields_for :passengers do |p| %>
+
 <br>
  <b> Passenger <%=n%> </b>
  <div class="container">
@@ -15,14 +15,15 @@
     <%= p.label :email %><br>
     <%= p.text_area :email %><br>
   </div>
+  </div>
   
   <%n += 1%>
-  <%end%>
+
   <%= form.hidden_field :flight_id, value: params[:flight_id] %>
-  <div>
-  </div>
-  </div>
+  
+
 <% end %>
+
     <%= form.submit %>
 <%end%>
 

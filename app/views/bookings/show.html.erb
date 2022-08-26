@@ -1,1 +1,19 @@
-<h1>chemicalX<h1>
+<h1>Flight Id: <%= @booking.flight_id%></h1>
+<br>
+<h3>Origin: <%=@booking.flight.departure_airport.code%></h3>
+<h3>Destination: <%=@booking.flight.arrival_airport.code%></h3>
+<br>
+<h3>Date & Time: <%=@booking.flight.date_time%></h3>
+<h3>Duration: <%=@booking.flight.flight_duration%></h3>
+<br>
+<br>
+<h1>Passenger Details</h1>
+<div class="container"
+    <% @booking.passengers.each do |b| %>
+    <br>
+    <h3> passenger <%= b.id %>
+     Name: <%= b.name %>
+    <br>
+    <%= b.email %> </h3> 
+    <%end%>
+ /div> 
