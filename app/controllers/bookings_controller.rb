@@ -5,22 +5,27 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    2.times { @booking.passenger.build }
+    @count = params[:passcount].to_i
+    # @flight = Flight.find_by(params[:flight_id])
+   @count.times{@booking.build_passenger}
   end
+  # def show
+  #   @booking = Booking.find(params[:id])
+  # end
 
   def create
-    
     @booking = Booking.new(bookingparams)
     if @booking.save
       flash[:notice] = "Booking confirmed"
-      # redirect_to :ticket
+      redirect_to @booking
+# debugger
     else
       render :new, status: :unprocessable_entity
     end
   end
 private
 def bookingparams
-  params.require(:booking).permit(:passengers_attributes => [:name, :email])
+  params.require(:booking).permit(:flight_id, :passenger_attributes => [:name, :email])
 end
 
 end

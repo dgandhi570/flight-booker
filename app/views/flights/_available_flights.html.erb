@@ -22,7 +22,8 @@
       <td><%=x.arrival_airport.code%></td>
       <td><%=x.date_time%></td>
       <td><%=x.flight_duration%></td>
-      <td><%=link_to "Book this flight",new_booking_path, class: "btn btn-secondary" %>
+      <td><%=link_to "Book this flight",new_booking_path(flight_id: x.id, passcount: params[:passcount]), class: "btn btn-secondary" %>
+       <%# <%= x.hidden_field :flight_id, value: @flight.id %> 
     </tr>
     <%y += 1%>
   
