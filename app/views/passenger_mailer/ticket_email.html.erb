@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Odin flight booker, <%= @p.name %> </h1>
+    <h3>
+      You have successfully booked tickets, and the details are:
+    </h3>
+     <b> Your booking ID is: <%= @p.booking_id %>.<br>
+      Departure Airport: <%= @p.booking.flight.departure_airport.code %><br>
+      Arrival Airport: <%= @p.booking.flight.arrival_airport.code %><br> </b>
+      <br>
+      <br>
+      <h3>
+      Other passengers associated with this booking are:
+    </h3>
+    <% @p.booking.passengers.each do |f| %>
+        <b><%= f.name %></b>
+        <br>
+      <% end %>
+
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for booking and have a great journey!</p>
+  </body>
+</html>

@@ -18,8 +18,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookingparams)
     if @booking.save
       flash[:notice] = "Booking confirmed"
-      redirect_to @booking
-# debugger
+
+      @booking.passengers.each do |x|
+        @x = x
+      PassengerMailer.with(@x).ticket_email.deliver_now!
+      end
+      
+      redirect_to @booking, notice: "Mail sent to all passengers"
     else
       render :new, status: :unprocessable_entity
     end
